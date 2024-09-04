@@ -291,7 +291,7 @@ session_start();
 				<div class="modal-body">
 					<?php
 					include "login_form.php";
-					
+
 					?>
 
 				</div>
@@ -310,9 +310,11 @@ session_start();
 
 				</div>
 				<div class="modal-body">
+
 					<?php
 					include "register_form.php";
-					
+
+
 					?>
 
 				</div>
