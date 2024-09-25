@@ -147,14 +147,16 @@ session_start();
 					<li><a href="#"><i class="fa fa-inr"></i> IDR</a></li>
 					<li><?php
 					include "db.php";
-					if (isset($_SESSION["uid"])) {
-						$sql = "SELECT first_name FROM user_info WHERE user_id='$_SESSION[uid]'";
+					if (isset($_SESSION["email"])) {
+						$sql = "SELECT first_name, last_name FROM user_info WHERE email='$_SESSION[email]'";
 						$query = mysqli_query($con, $sql);
 						$row = mysqli_fetch_array($query);
 
 						echo '
                                <div class="dropdownn">
-                                  <a href="#" class="dropdownn" data-toggle="modal" data-target="#myModal" ><i class="fa fa-user-o"></i> HI ' . $row["first_name"] . '</a>
+                                  <a href="#" class="dropdownn" data-toggle="modal" data-target="#myModal">
+        <i class="fa fa-user-o"></i> Hello ' . $row["first_name"] . ' ' . $row["last_name"] . '
+      </a>
                                   <div class="dropdownn-content">
                                     <a href="" data-toggle="modal" data-target="#profile"><i class="fa fa-user-circle" aria-hidden="true" ></i>My Profile</a>
                                     <a href="logout.php"  ><i class="fa fa-sign-in" aria-hidden="true"></i>Log out</a>
@@ -323,3 +325,18 @@ session_start();
 
 		</div>
 	</div>
+	<!-- Sign Out Button -->
+	<!-- <div class="modal fade" id="Modal_logout" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<form action="logout.php" method="post">
+						<button type="submit" class="btn btn-danger">Sign Out</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div> -->
